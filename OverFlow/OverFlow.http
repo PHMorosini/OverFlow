@@ -1,0 +1,6 @@
+@OverFlow_HostAddress = http://localhost:5155
+
+GET {{OverFlow_HostAddress}}/weatherforecast/
+Accept: application/json
+
+###
