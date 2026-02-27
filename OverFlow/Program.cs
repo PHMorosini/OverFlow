@@ -1,5 +1,6 @@
 
 using Microsoft.EntityFrameworkCore;
+using OverFlow.Application.Mapping;
 using OverFlow.Infrastructure.Base.Interface;
 using OverFlow.Infrastructure.Base.Repository;
 using OverFlow.Infrastructure.Context;
@@ -27,8 +28,13 @@ public class Program
             )
         );
 
+        
+        //registro de repositorys
         builder.Services.AddScoped(typeof(IBaseRepository<>), typeof(BaseRepository<>));
         builder.Services.AddScoped<IUsuarioRepository, UsuarioRepository>();
+
+        //registro de automapper
+        builder.Services.AddAutoMapper(config => { },typeof(MappingProfile));
 
         var app = builder.Build();
 
